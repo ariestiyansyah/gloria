@@ -21,7 +21,7 @@ function playSound() {
 
 //check that our browser supports the web audio api.
 if(window.AudioContext || window.webkitAudioContext){
-	var audio_url = '/sounds/hero.mp3';
+	var audio_url = 'http://oonlab.com/gloria/sounds/hero.mp3';
 
 	var audio_context = new (window.AudioContext || window.webkitAudioContext)();
 	var sound_request = new XMLHttpRequest();
@@ -130,7 +130,7 @@ draw();
 
 //simple FAYE code
 // var client = new Faye.Client("http://localhost:8123");
-var client = new Faye.Client("http://oonlab.com/alamanda");
+var client = new Faye.Client("http://oonlab.com/gloria");
 client.subscribe("/"+channame, function(message){
 	//we are already providing instant response to the user when they click a heart, so we want to disregard the message from the server if it is that same user.
 	if(message.sender !== identifier){
